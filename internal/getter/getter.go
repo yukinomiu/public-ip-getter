@@ -6,9 +6,10 @@ import (
 	"log/slog"
 	"net"
 	"net/http"
-	"public-ip-getter/internal/config"
 	"strings"
 	"time"
+
+	"github.com/yukinomiu/public-ip-getter/internal/config"
 )
 
 type (
@@ -41,7 +42,7 @@ func New(cfg *config.Config) *Getter {
 }
 
 func (g *Getter) Run() error {
-	slog.Info("start HTTP server", slog.String("listen-address", g.cfg.ListenAddr))
+	slog.Info("start HTTP server", slog.String("listen-address", g.httpServer.Addr))
 	err := g.httpServer.ListenAndServe()
 	if errors.Is(err, http.ErrServerClosed) {
 		return nil

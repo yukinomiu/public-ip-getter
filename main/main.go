@@ -5,9 +5,10 @@ import (
 	"log/slog"
 	"os"
 	"os/signal"
-	"public-ip-getter/internal/config"
-	"public-ip-getter/internal/getter"
 	"syscall"
+
+	"github.com/yukinomiu/public-ip-getter/internal/config"
+	"github.com/yukinomiu/public-ip-getter/internal/getter"
 )
 
 func main() {
